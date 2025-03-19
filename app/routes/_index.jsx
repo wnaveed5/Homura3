@@ -64,7 +64,9 @@ export default function Homepage() {
   return (
     <div className="home">
       <HeroBanner />
-      <RecommendedProducts products={data.recommendedProducts} />
+      <div className="content-below-hero">
+        <RecommendedProducts products={data.recommendedProducts} />
+      </div>
     </div>
   );
 }
