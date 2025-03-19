@@ -11,15 +11,14 @@ export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
   return (
     <header className="header">
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <strong>{shop.name}</strong>
+        <h1 className="homura-logo">homura®</h1>
       </NavLink>
-      <HeaderMenu
-        menu={menu}
-        viewport="desktop"
-        primaryDomainUrl={header.shop.primaryDomain.url}
-        publicStoreDomain={publicStoreDomain}
-      />
-      <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
+      <div className="header-spacer"></div>
+      <nav className="header-nav">
+        <button className="menu-button">Menu</button>
+        <button className="search-button">Search</button>
+        <button className="cart-button">Cart</button>
+      </nav>
     </header>
   );
 }

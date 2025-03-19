@@ -6,7 +6,7 @@ import {Image, Money} from '@shopify/hydrogen';
  * @type {MetaFunction}
  */
 export const meta = () => {
-  return [{title: 'Hydrogen | Home'}];
+  return [{title: 'Homura | Official Online Shop'}];
 };
 
 /**
@@ -63,32 +63,30 @@ export default function Homepage() {
   const data = useLoaderData();
   return (
     <div className="home">
-      <FeaturedCollection collection={data.featuredCollection} />
+      <HeroBanner />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
   );
 }
 
-/**
- * @param {{
- *   collection: FeaturedCollectionFragment;
- * }}
- */
-function FeaturedCollection({collection}) {
-  if (!collection) return null;
-  const image = collection?.image;
+function HeroBanner() {
   return (
-    <Link
-      className="featured-collection"
-      to={`/collections/${collection.handle}`}
-    >
-      {image && (
-        <div className="featured-collection-image">
-          <Image data={image} sizes="100vw" />
+    <div className="hero-banner">
+      <div className="video-container">
+        <div className="desktop-video">
+          <video autoPlay muted loop playsInline>
+            <source src="/videos/desktop-banner.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
-      )}
-      <h1>{collection.title}</h1>
-    </Link>
+        <div className="mobile-video">
+          <video autoPlay muted loop playsInline>
+            <source src="/videos/mobile-banner.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
   );
 }
 
