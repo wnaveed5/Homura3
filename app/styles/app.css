@@ -6,6 +6,19 @@
   --header-height: 64px;
   --color-dark: #000;
   --color-light: #fff;
+  --font-family: 'Poppins', sans-serif;
+}
+
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+/* Global styles */
+html, body {
+  font-family: var(--font-family);
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, select, label {
+  font-family: var(--font-family);
 }
 
 img {
@@ -159,7 +172,7 @@ button.reset:hover:not(:has(> *)) {
 */
 .header {
   align-items: center;
-  background: #000;
+  background: transparent;
   display: flex;
   height: var(--header-height);
   padding: 0 1rem;
@@ -170,12 +183,13 @@ button.reset:hover:not(:has(> *)) {
 }
 
 .homura-logo {
-  color: #fff;
-  font-size: 3rem;
+  color: #000;
+  font-size: 60px;
   font-weight: 900;
   text-transform: lowercase;
   margin: 0;
   line-height: 1;
+  font-family: var(--font-family);
 }
 
 .header-spacer {
@@ -188,11 +202,12 @@ button.reset:hover:not(:has(> *)) {
 }
 
 .header-nav button {
-  color: #fff;
+  color: #000;
   background: transparent;
   border: none;
   cursor: pointer;
   font-size: 1rem;
+  font-family: var(--font-family);
 }
 
 /* Hero Banner with Video */
@@ -582,4 +597,15 @@ button.reset:hover:not(:has(> *)) {
 
 .account-logout {
   display: inline-block;
+}
+
+/* Make the recommended products section match the new design */
+.recommended-products h2 {
+  font-family: var(--font-family);
+  font-weight: 600;
+}
+
+.recommended-product h4 {
+  font-family: var(--font-family);
+  font-weight: 500;
 }
