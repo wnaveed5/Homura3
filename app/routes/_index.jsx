@@ -75,13 +75,13 @@ function HeroBanner() {
       <div className="video-container">
         <div className="desktop-video">
           <video autoPlay muted loop playsInline>
-            <source src="/videos/desktop-banner.mp4" type="video/mp4" />
+            <source src="https://cdn.shopify.com/videos/c/o/v/215ea5cfe1f549ac889e15761d049bbd.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
         <div className="mobile-video">
           <video autoPlay muted loop playsInline>
-            <source src="/videos/mobile-banner.mp4" type="video/mp4" />
+            <source src="https://cdn.shopify.com/videos/c/o/v/e5f25076076549c381cd1318ce12feab.mov" type="video/mov" />
             Your browser does not support the video tag.
           </video>
         </div>
