@@ -81,7 +81,7 @@ function HeroBanner() {
         </div>
         <div className="mobile-video">
           <video autoPlay muted loop playsInline>
-            <source src="https://cdn.shopify.com/videos/c/o/v/e5f25076076549c381cd1318ce12feab.mov" type="video/mov" />
+            <source src="https://cdn.shopify.com/videos/c/o/v/e5f25076076549c381cd1318ce12feab.mov" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
