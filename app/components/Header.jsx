@@ -8,6 +8,8 @@ import {useAside} from '~/components/Aside';
  */
 export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
   const {shop, menu} = header;
+  const {open} = useAside();
+  
   return (
     <header className="header">
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
@@ -15,9 +17,19 @@ export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
       </NavLink>
       <div className="header-spacer"></div>
       <nav className="header-nav">
-        <button className="menu-button">Menu</button>
-        <button className="search-button">Search</button>
-        <button className="cart-button">Cart</button>
+        <button 
+          className="menu-button" 
+          onClick={() => open('mobile')}
+        >
+          Menu
+        </button>
+        <button 
+          className="search-button" 
+          onClick={() => open('search')}
+        >
+          Search
+        </button>
+        <CartButton cart={cart} />
       </nav>
     </header>
   );
@@ -165,6 +177,38 @@ function CartBanner() {
   const originalCart = useAsyncValue();
   const cart = useOptimisticCart(originalCart);
   return <CartBadge count={cart?.totalQuantity ?? 0} />;
+}
+
+function CartButton({cart}) {
+  const {open} = useAside();
+  const {publish, shop, cart: analyticsCart, prevCart} = useAnalytics();
+  
+  return (
+    <Suspense fallback={<button className="cart-button">Cart</button>}>
+      <Await resolve={cart}>
+        {(resolvedCart) => {
+          const cartCount = resolvedCart?.totalQuantity || 0;
+          return (
+            <button 
+              className="cart-button"
+              onClick={(e) => {
+                e.preventDefault();
+                open('cart');
+                publish('cart_viewed', {
+                  cart: analyticsCart,
+                  prevCart,
+                  shop,
+                  url: window.location.href || '',
+                });
+              }}
+            >
+              Cart {cartCount > 0 ? `(${cartCount})` : ''}
+            </button>
+          );
+        }}
+      </Await>
+    </Suspense>
+  );
 }
 
 const FALLBACK_HEADER_MENU = {

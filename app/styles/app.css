@@ -63,6 +63,8 @@ aside header {
 
 aside header h3 {
   margin: 0;
+  font-family: var(--font-family);
+  font-weight: 600;
 }
 
 aside header .close {
@@ -211,6 +213,13 @@ button.reset:hover:not(:has(> *)) {
   font-size: 1rem;
   font-family: var(--font-family);
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+  padding: 0;
+  display: block;
+  text-align: center;
+}
+
+.header-nav button:hover {
+  text-decoration: underline;
 }
 
 /* Hero Banner with Video */
@@ -272,7 +281,15 @@ button.reset:hover:not(:has(> *)) {
 .header-menu-mobile {
   display: flex;
   flex-direction: column;
-  grid-gap: 1rem;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.header-menu-mobile a {
+  font-family: var(--font-family);
+  font-size: 1.2rem;
+  color: #000;
+  text-decoration: none;
 }
 
 .header-menu-desktop {
